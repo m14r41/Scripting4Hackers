@@ -1,5 +1,21 @@
 # Welcome to BASH Sripting
 
+## List of BASH Project
+
+| S.N | Project Name | Description |
+|-----|--------------|-------------|
+| 1   | [Configure Static-IP in VirtualMachine](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Configure%20Static-IP%20in%20VirtualMachine) | Set up a static IP for a Virtual Machine |
+| 2   | [Contribute to someone else's repository](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Contribute%20to%20someone%20else's%20repository) | Contributed to another repository |
+| 3   | [Create new repository on the command line](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Create%20new%20repository%20on%20the%20command%20line) | Created a new Git repository via the command line |
+| 4   | [Delete Github Repository Without Losing Stars and Forks](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Delete%20Github%20Repository%20Without%20Losing%20Stars%20and%20Forks) | Updated message for deleting repositories |
+| 5   | [GREP and SED](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/GREP%20and%20SED) | Demonstrated usage of `grep` and `sed` tools |
+| 6   | [Push GitHub Repo by CMD](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Push%20GitHub%20Repo%20by%20CMD) | Pushed a repository to GitHub using the command line |
+| 7   | [Semgrep Code Review Scan](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Semgrep%20Code%20Review%20Scan) | Used Semgrep for code review scanning |
+| 8   | [Simple Screen Recorder](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/Simple%20Screen%20Recorder) | Created a simple screen recording tool |
+| 9   | [ZSH Fix Issue](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/ZSH%20Fix%20Issue) | Fixed issues related to ZSH shell |
+| 10  | [Miscellaneous](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/tools) | Added various tools for development |
+
+
 ## BASH Sripting Resources:
 
 | **S.N** | **Resource**                                                                 |
