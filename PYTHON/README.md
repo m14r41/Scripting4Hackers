@@ -10,6 +10,12 @@
 | 3   | [100 advanceSript.md](https://github.com/m14r41/Scripting4Hackers/blob/main/PYTHON/100%20advanceSript.md) | A markdown file containing 100 advanced scripting techniques and examples.  |
 
 
+# Ohter Python Sript Project
+
+| S.N | Project Name | Description | Credit |
+| --- | ------------ | ----------- | ------ |
+| 1   | [PythonCode Tutorials (Ethical Hacking)](https://github.com/x4nth055/pythoncode-tutorials/tree/master/ethical-hacking) | A collection of Python code examples for ethical hacking. Includes tutorials on various hacking tools and techniques. | [x4nth055](https://github.com/x4nth055) |
+| 2   | [Ethical Hacking Tools in Python](https://github.com/x4nth055/ethical-hacking-tools-python) | Python-based tools for ethical hacking, including various utilities for penetration testing and security assessments. | [x4nth055](https://github.com/x4nth055) |
 
 ---
 
