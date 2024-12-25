@@ -10,7 +10,7 @@
 | 3   | [100 advanceSript.md](https://github.com/m14r41/Scripting4Hackers/blob/main/PYTHON/100%20advanceSript.md) | A markdown file containing 100 advanced scripting techniques and examples.  |
 
 
-# Ohter Python Sript Project
+# Otter Python Sript Project
 
 | S.N | Project Name | Description | Credit |
 | --- | ------------ | ----------- | ------ |
