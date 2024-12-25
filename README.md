@@ -8,6 +8,10 @@
 |---------|------------------------------------------------------|
 | 1       | [Bash Scripts](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH)  |
 | 2       | [Python Scripts](https://github.com/m14r41/Scripting4Hackers/tree/main/PYTHON)|
+| 2       | [Bat and Powershell](https://github.com/m14r41/Scripting4Hackers/tree/main/BAT%20%26%20POWERSHELL)|
+
+
+
 
 
 
