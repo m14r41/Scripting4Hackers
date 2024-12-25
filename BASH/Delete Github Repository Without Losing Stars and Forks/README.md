@@ -32,6 +32,15 @@
 rm -rf .git
 ```
 
+
+```bash
+# Reinitialize the Git repository:
+
+git init
+```
+
+
+
 ```bash
 # Add all files in the current directory to the staging area.
 git add .
@@ -48,7 +57,16 @@ git checkout -b main
 ```bash
 # Display a list of branches to confirm that the "main" branch was created.
 git branch
+
 ```
+
+```bash
+#Add a remote origin 
+git remote add origin <repository-url>
+
+
+```
+
 
 ```bash
 # Forcefully push the "main" branch to the remote repository (GitHub in this case).
