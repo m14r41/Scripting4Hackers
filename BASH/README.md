@@ -16,17 +16,16 @@
 | 10  | [Miscellaneous](https://github.com/m14r41/Scripting4Hackers/tree/main/BASH/tools) | Added various tools for development |
 
 
-## BASH Sripting Resources:
 
-| **S.N** | **Resource**                                                                 |
-|---------|-------------------------------------------------------------------------------|
-| 1       | [Devhints - Bash](https://devhints.io/bash)                                   |
-| 2       | [Awesome Cheatsheets - Bash](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh) |
-| 3       | [Bash Cheat Sheet - RehanSaeed](https://github.com/RehanSaeed/Bash-Cheat-Sheet) |
-| 4       | [Zero2DevOps - Bash Scripting Cheat Sheet](https://www.zero2devops.com/blog/bash-scripting-cheat-sheet) |
+### BASH Scripting Resources:
 
+| **S.N** | **Resource**                                                                 | **Description**                                                                                     | **Credit**                      |
+|---------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------|
+| 1       | [Devhints - Bash](https://devhints.io/bash)                                   | Concise and well-structured cheat sheet for Bash commands and scripting.                           | Devhints.io                     |
+| 2       | [Awesome Cheatsheets - Bash](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh) | A comprehensive collection of Bash scripting tips and commands.                                    | GitHub/LeCoupa                  |
+| 3       | [Bash Cheat Sheet - RehanSaeed](https://github.com/RehanSaeed/Bash-Cheat-Sheet) | Detailed guide covering essential Bash commands and their use cases.                               | GitHub/RehanSaeed               |
+| 4       | [Zero2DevOps - Bash Scripting Cheat Sheet](https://www.zero2devops.com/blog/bash-scripting-cheat-sheet) | Practical cheat sheet for Bash scripting tailored for DevOps use cases.                           | Zero2DevOps Blog                |
 
----
 
 
 # Create a Simple Menu
