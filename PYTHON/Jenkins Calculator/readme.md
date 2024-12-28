@@ -1,9 +1,12 @@
-## Sample Output
+## Sample Output: V.0
 
 ![image](https://github.com/user-attachments/assets/33f66918-892d-46ed-bb03-d21b2ae15170)
+---
 
+![image](https://github.com/user-attachments/assets/dc7184a8-dbdd-437c-93e7-3f262214cc01)
 
-For clarification on how the script handles the **start time** and **end time** when you run the script. Let me break it down for you:
+## Sample Output: V.5
+I would like to clarify how the script handles the **start time** and **end time** when you run the script. Let me break it down for you:
 
 ### 1. **Start Date Time**:
    - **What is asked**: When you run the script, it will prompt you for a **start date** (the first date of the range). 
