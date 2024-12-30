@@ -130,10 +130,11 @@ def list_folders(folder_url, start_date, end_date, level=0, results=None, filter
             total_entries = len(minute_values)
             extracted_minutes_str = ' + '.join([str(min_val) for min_val in minute_values])
 
-            log(f"{indent}  {Fore.WHITE}Job Name   : {Style.BRIGHT} {job_name}{Fore.RESET}")
-            log(f"{indent}  {Fore.WHITE}Build Range: {Style.BRIGHT} {build_range} ({total_entries} entries){Fore.RESET}")
-            log(f"{indent}  {Fore.WHITE}Total Minutes: {Style.BRIGHT} {total_minutes} minutes{Fore.RESET}")
-            log(f"{indent}  {Fore.WHITE}Time in Hours: {Style.BRIGHT} {total_minutes / 60:.2f} hours{Fore.RESET}")
+            log(f"{indent}  {Fore.WHITE} Job Name     :{Style.BRIGHT} {job_name}{Fore.RESET}")
+            log(f"{indent}  {Fore.WHITE} Build Range  :{Style.BRIGHT} {build_range} ({total_entries} entries){Fore.RESET}")
+            log(f"{indent}  {Fore.WHITE} Build Minutes:{Style.BRIGHT} {extracted_minutes_str} {Fore.RESET}")
+            log(f"{indent}  {Fore.WHITE} Total Minutes:{Style.BRIGHT} {total_minutes} minutes{Fore.RESET}")
+            log(f"{indent}  {Fore.WHITE} Time in Hours:{Style.BRIGHT} {total_minutes / 60:.2f} hours{Fore.RESET}")
 
             results.append({
                 'job_url': job_url,
