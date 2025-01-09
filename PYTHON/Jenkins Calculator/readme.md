@@ -1,12 +1,3 @@
-## Sample Output: V.0
-
-![image](https://github.com/user-attachments/assets/33f66918-892d-46ed-bb03-d21b2ae15170)
----
-
-
-## Sample Output: V.5
-Lets clarify how the script handles the **start time** and **end time** when you run the script. Let me break it down for you.
-
 
 
 
