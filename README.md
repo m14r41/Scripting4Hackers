@@ -13,6 +13,8 @@
 
 
 
+![image](https://github.com/user-attachments/assets/a4a811ce-0a44-45b0-b2f1-e481cc690536)
 
 
-![Sripting4Hackers](https://github.com/user-attachments/assets/42d1dcda-dc67-44bf-a991-9b61823b8984)
+
+
