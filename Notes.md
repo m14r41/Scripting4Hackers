@@ -2,7 +2,6 @@
 
 # MobSF Docker Setup & Management
 
-# MobSF Docker Setup & Management
 
 ```bash
 docker stop mobsf  # Stop the running MobSF container (if it exists)
