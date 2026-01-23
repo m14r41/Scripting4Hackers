@@ -14,11 +14,11 @@
 mkdir All_Photos
 ````
 
-## Script 1: Simple Copy (May Overwrite)
+## Script 1: Simple Copy 
 ```powershell
 Get-ChildItem ".\Google-Photos" -Recurse -File -Include *.jpg,*.jpeg,*.png,*.heic,*.gif,*.mp4,*.mov,*.avi,*.mkv | Copy-Item -Destination ".\All_Photos"
 ```
-## Script 2: Duplicate-Safe Copy (Recommended)
+## Script 2: Duplicate-Safe Copy 
 ```powershell
 Get-ChildItem ".\Google-Photos" -Recurse -File -Include *.jpg,*.jpeg,*.png,*.heic,*.gif,*.mp4,*.mov,*.avi,*.mkv | ForEach-Object { $d=".\All_Photos\$($_.Name)"; if(Test-Path $d){$b=[IO.Path]::GetFileNameWithoutExtension($_.Name);$e=$_.Extension;$d=".\All_Photos\$b-$($_.LastWriteTime.Ticks)$e"}; Copy-Item $_.FullName $d }
 ```
