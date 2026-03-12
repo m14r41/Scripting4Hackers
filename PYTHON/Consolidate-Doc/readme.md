@@ -3,7 +3,7 @@
 >
 > ex : python consolidate.py
 
-### Install dependency : just run documens folder
+### Install dependency 
 ```
 pip install pymupdf pillow pypdf python-docx
 ```
