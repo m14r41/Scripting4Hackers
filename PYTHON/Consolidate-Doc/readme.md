@@ -1,7 +1,7 @@
 ## Conver you doc Images, PDF in Single PDF/DOC 
 > just run python in documens folder
 >
-> ex : pythoin consolidate.py
+> ex : python consolidate.py
 
 ### Install dependency : just run documens folder
 ```
