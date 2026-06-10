@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Recon </title>
+
+<style>
+body {
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top, #0b1220, #05070f);
+    color:#e6f1ff;
+}
+
+/* TOP BAR - STICKY + GLASS */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.75);
+    padding:14px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+header h2 {
+    margin:0;
+    font-size:18px;
+    background: linear-gradient(90deg,#4da3ff,#a855f7,#22c55e);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-weight:700;
+}
+
+.top-controls {
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+select, input {
+    padding:9px 10px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.08);
+    background: rgba(18, 26, 43, 0.8);
+    color:white;
+    outline:none;
+    transition:0.2s;
+}
+
+select:hover, input:hover {
+    border-color:#4da3ff;
+}
+
+/* DASHBOARD */
+.container {
+    padding:22px;
+}
+
+/* KPI CARDS - COLORFUL GRADIENTS */
+.cards {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:12px;
+}
+
+.card {
+    padding:16px;
+    border-radius:14px;
+    text-align:center;
+    color:white;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.25s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Individual card colors */
+.card:nth-child(1){
+    background: linear-gradient(135deg,#3b82f6,#1e3a8a);
+}
+.card:nth-child(2){
+    background: linear-gradient(135deg,#22c55e,#065f46);
+}
+.card:nth-child(3){
+    background: linear-gradient(135deg,#ef4444,#7f1d1d);
+}
+
+.card h3 {
+    margin:0;
+    font-size:26px;
+}
+
+/* FILTERS */
+.filters {
+    margin-top:16px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.badge {
+    font-size:12px;
+    padding:5px 10px;
+    background: rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:999px;
+}
+
+/* ACCORDION */
+.accordion {
+    margin-top:18px;
+}
+
+.item {
+    background: rgba(18, 26, 43, 0.7);
+    margin-bottom:12px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.item-header {
+    padding:12px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    background: rgba(15, 23, 42, 0.9);
+    font-weight:600;
+}
+
+.item-header:hover {
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.item-content {
+    display:none;
+    padding:12px;
+}
+
+a {
+    color:#60a5fa;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Recon Dashboard</h2>
+
+    <div class="top-controls">
+        <select id="targets" onchange="loadData()"></select>
+
+        <select id="timeFilter">
+            <option value="all">All Time</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+        </select>
+
+        <input id="search" placeholder="Search..." onkeyup="render()">
+    </div>
+</header>
+
+<div class="container">
+
+<div class="cards">
+    <div class="card">
+        <h3 id="subs">0</h3>
+        <p>Subdomains</p>
+    </div>
+
+    <div class="card">
+        <h3 id="live">0</h3>
+        <p>Live Hosts</p>
+    </div>
+
+    <div class="card">
+        <h3 id="vuln">0</h3>
+        <p>Vulnerabilities</p>
+    </div>
+</div>
+
+
+<div class="accordion">
+
+    <div class="item">
+        <div class="item-header" onclick="toggle(this)">
+             Subdomains
+        </div>
+        <div class="item-content" id="subsBox"></div>
+    </div>
+
+    <div class="item">
+        <div class="item-header" onclick="toggle(this)">
+             Live Hosts
+        </div>
+        <div class="item-content" id="liveBox"></div>
+    </div>
+
+    <div class="item">
+        <div class="item-header" onclick="toggle(this)">
+             Vulnerabilities
+        </div>
+        <div class="item-content" id="vulnBox"></div>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+let DATA = {};
+
+async function loadTargets() {
+    const res = await fetch("/api/targets");
+    const targets = await res.json();
+
+    const sel = document.getElementById("targets");
+    sel.innerHTML = "";
+
+    targets.forEach(t => {
+        let opt = document.createElement("option");
+        opt.value = t;
+        opt.innerText = t;
+        sel.appendChild(opt);
+    });
+
+    loadData();
+}
+
+async function loadData() {
+
+    const t = document.getElementById("targets").value;
+
+    const res = await fetch("/api/data/" + t);
+    DATA = await res.json();
+
+    document.getElementById("subs").innerText = DATA.subs.length;
+    document.getElementById("live").innerText = DATA.live.length;
+    document.getElementById("vuln").innerText = DATA.vuln.length;
+
+    render();
+}
+
+function render() {
+
+    let q = document.getElementById("search").value.toLowerCase();
+
+    let subs = DATA.subs.filter(x => x.toLowerCase().includes(q));
+    let live = DATA.live.filter(x => x.toLowerCase().includes(q));
+    let vuln = DATA.vuln.filter(x => x.toLowerCase().includes(q));
+
+    document.getElementById("subsBox").innerHTML =
+        subs.map(s => `<div>${s}</div>`).join("");
+
+    document.getElementById("liveBox").innerHTML =
+        live.map(l => `<div><a target="_blank" href="${l.split(' ')[0]}">${l}</a></div>`).join("");
+
+    document.getElementById("vulnBox").innerHTML =
+        vuln.map(v => `<div>${v}</div>`).join("");
+}
+
+function toggle(el) {
+    let box = el.nextElementSibling;
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+loadTargets();
+
+
+
+</script>
+
+
+</body>
+</html>
