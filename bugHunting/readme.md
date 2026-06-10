@@ -13,6 +13,6 @@ chmod +x enum.sh
 ```
 
 # UI 
-> visit you port 3000 to check result.
+> visit on port 3000 to check result.
 
 <img width="1039" height="703" alt="image" src="https://github.com/user-attachments/assets/a0bd05cb-e59c-4017-bf12-49b2277f99ba" />
