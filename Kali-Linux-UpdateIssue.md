@@ -136,12 +136,3 @@ Q & A
 * * *
 
 **More questions? Need support?** Head to the Kali Linux [Forums](https://forums.kali.org/), [Discord Channel](https://discord.kali.org/) or [IRC Channel](https://www.kali.org/docs/community/kali-linux-irc-channel/), at your preference, and get in touch. We’ll be happy to help.
-<<<<<<< Updated upstream
-=======
-
-
---- 
-
-# END
-
->>>>>>> Stashed changes
