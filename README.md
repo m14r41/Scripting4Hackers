@@ -2,7 +2,7 @@
 
 
 
-# Explor the Sripting.
+# Explor the Sripting:
 
 | **S.N** | **Scripting**                                        |
 |---------|------------------------------------------------------|
