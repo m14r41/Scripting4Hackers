@@ -1,5 +1,5 @@
 # A New Kali Linux Archive Signing Key | Kali Linux Blog
-TL;DR
+
 -----
 
 Bad news for Kali Linux users! In the coming day(s), `apt update` is going to fail for pretty much everyone out there:
